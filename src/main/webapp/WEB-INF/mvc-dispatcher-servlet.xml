@@ -21,12 +21,6 @@
         и замаппим их на урл вида /resources/** -->
     <mvc:resources mapping="/resources/**" location="/resources/" />
 
-    <!-- Отображение видов на jsp-файлы, лежащие в папке /WEB-INF/pages -->
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-        <!--<property name="prefix" value="/WEB-INF/pages/"/>-->
-        <!--<property name="suffix" value=".jsp"/>-->
-    <!--</bean>-->
-
     <!-- Отображение видов на ftl-файлы, лежащие в папке /WEB-INF/views -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"
           p:prefix=""

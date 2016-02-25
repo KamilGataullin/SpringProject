@@ -56,6 +56,10 @@ public class GoodInfo {
         this.name = name;
     }
 
+    public String getDecoratedName() {
+        return "*** " + name + " ***";
+    }
+
     public Long getCategoryId() {
         return categoryId;
     }

@@ -1,13 +1,13 @@
 <#-- @ftlvariable name="goods" type="java.util.List<com.springapp.mvc.common.GoodInfo>" -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Catalog</title>
-</head>
-<body>
+<#include "../template/mainTemplate.ftl">
+<@mainTemplate title="Каталог" styles=["css/style.css"] scripts=["js/script.js"]/>
+
+<#macro m_body>
     Page = ${page}
     Limit = ${limit!"null"}
+
+    <#include "components/filters.ftl">
+    <#include "components/sort.ftl">
 
     <#list goods as good>
         <#if !limit?? || good_index < limit>
@@ -20,5 +20,4 @@
         </pre>
         </#if>
     </#list>
-</body>
-</html>
+</#macro>

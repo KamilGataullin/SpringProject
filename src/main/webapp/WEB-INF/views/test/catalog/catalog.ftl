@@ -15,7 +15,7 @@
         ${good_index})
             ID: ${good.id}
             Название товара: ${good.name}
-            ID категории: ${good.categoryId}
+            ID категории: ${good.category.id}
             цена: ${good.price?number}
         </pre>
         </#if>

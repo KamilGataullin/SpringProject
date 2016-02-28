@@ -21,9 +21,19 @@ public class GoodInfo {
     private String name;
 
     /**
-     * id категории товара
+     * Описание товара
      */
-    private Long categoryId;
+    private String description;
+
+    /**
+     * URL изображения
+     */
+    private String imageUrl;
+
+    /**
+     * Категория товара
+     */
+    private CategoryInfo category;
 
     /**
      * Цена
@@ -33,10 +43,27 @@ public class GoodInfo {
     public GoodInfo() {
     }
 
-    public GoodInfo(Long id, String name, Long categoryId, BigDecimal price) {
+    public GoodInfo(Long id, String name, CategoryInfo category, BigDecimal price) {
         this.id = id;
         this.name = name;
-        this.categoryId = categoryId;
+        this.category = category;
+        this.price = price;
+    }
+
+    public GoodInfo(Long id, String name, String imageUrl, CategoryInfo category, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.category = category;
+        this.price = price;
+    }
+
+    public GoodInfo(Long id, String name, String description, String imageUrl, CategoryInfo category, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.category = category;
         this.price = price;
     }
 
@@ -60,12 +87,28 @@ public class GoodInfo {
         return "*** " + name + " ***";
     }
 
-    public Long getCategoryId() {
-        return categoryId;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public CategoryInfo getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryInfo category) {
+        this.category = category;
     }
 
     public BigDecimal getPrice() {

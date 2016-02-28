@@ -1,7 +1,10 @@
 package com.springapp.mvc.controllers;
 
 import com.springapp.mvc.common.GoodInfo;
+import com.springapp.mvc.common.MenuInfo;
+import com.springapp.mvc.common.catalog.CatalogFilterInfo;
 import com.springapp.mvc.services.CatalogService;
+import com.springapp.mvc.services.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +27,8 @@ import java.util.List;
 public class CatalogController {
 
     @Autowired
+    private MenuService menuService;
+    @Autowired
     private CatalogService catalogService;
 
     /**
@@ -39,11 +44,19 @@ public class CatalogController {
                                 @RequestParam(value = "page", required = false, defaultValue = "1") String page,
                                 Long limit,
                                 Model model) {
+        // TODO вынести в аспект
+        List<MenuInfo> listMenu = menuService.getMainMenu();
+        model.addAttribute("listMenu", listMenu);
+
         List<GoodInfo> goods = catalogService.getGoodsByCategoryId(id);
         model.addAttribute("goods", goods);
+
+        CatalogFilterInfo catalogFilter = catalogService.getCatalogFilters(id);
+        model.addAttribute("catalogFilter", catalogFilter);
+
         model.addAttribute("page", page);
         model.addAttribute("limit", limit);
-        return "catalog/catalog";
+        return "catalog/catalogPage";
     }
 
     /**
@@ -52,6 +65,6 @@ public class CatalogController {
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
     public String mainCatalog(HttpServletRequest request) {
         request.setAttribute("message", "Главная страница каталога");
-        return "catalog/catalogMain";
+        return "catalog/catalogPage";
     }
 }

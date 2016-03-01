@@ -15,7 +15,7 @@
                         <h4>${good.name!}</h4>
                         <p>${(good.category.name)!}</p>
                         <div class="price mount item_price">$${good.price?number?string["0.00"]}</div>
-                        <a class="button item_add cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>
+                        <a class="button item_add cbp-vm-icon cbp-vm-add js_addToCart" href="#">Add to cart</a>
                     </div>
                 </div>
             </div>

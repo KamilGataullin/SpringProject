@@ -9,7 +9,7 @@
                         <img src="/resources${good.imageUrl!"/images/m4.jpg"}" alt="image" class="img-responsive zoom-img">
                     </div>
                     <div class="mask">
-                        <div class="info">Quick View</div>
+                        <div class="info js_goodDetail" data-id="${good.id}">Quick View</div>
                     </div>
                     <div class="product_container">
                         <h4>${good.name!}</h4>

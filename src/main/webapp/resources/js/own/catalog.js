@@ -69,4 +69,20 @@ $(document).ready(function () {
             }
         });
     });
+
+    $(document).on('click', '.js_goodDetail', function () {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/good/' + $(this).data('id'),
+            //dataType: 'json',
+            success: function (data, status) {  // успешное завершение работы
+                alert(JSON.stringify(data, "", 4));
+            },
+            error: function (error) {    // На сервере произошла ошибка
+                alert('Приносим извинения.<br/>На сервере произошла ошибка<br/>' + error);
+            }
+        });
+    });
+
 });

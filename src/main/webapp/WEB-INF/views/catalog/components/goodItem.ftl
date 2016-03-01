@@ -14,8 +14,8 @@
                     <div class="product_container">
                         <h4>${good.name!}</h4>
                         <p>${(good.category.name)!}</p>
-                        <div class="price mount item_price">$${good.price?number?string["0.00"]}</div>
-                        <a class="button item_add cbp-vm-icon cbp-vm-add js_addToCart" href="#">Add to cart</a>
+                        <div class="price mount item_price">$${good.price?number}.00</div>
+                        <a class="button item_add cbp-vm-icon cbp-vm-add js_addToCart" data-id="${good.id}" href="/cart">Add to cart</a>
                     </div>
                 </div>
             </div>

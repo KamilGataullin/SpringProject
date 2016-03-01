@@ -52,17 +52,20 @@ $(document).ready(function () {
     // верно!!!
     $(document).on('click', '.js_addToCart', function () {
         alert(3);
+        event.preventDefault();
+        var $this = $(this);
         $.ajax({
             type: 'POST',
             url: '/cart/add',
-            data: {id: id},
-            success: function (data, status) {
-                $("#content").html(data);
+            data: {goodId: $this.data('id')},
+            success: function (data, status) {  // успешное завершение работы
+                console.log('/cart/add result: data=' + data + '; status=' + status);
+                if (data == 'ok') {
+                    $this.removeClass('js_addToCart').text('Go in cart').css('background', 'rgb(280, 124, 83)');
+                }
             },
-            error: function () {
-                $("#content").html(
-                    'Приносим извинения.<br/>' +
-                    'На сервере произошла ошибка');
+            error: function () {    // На сервере произошла ошибка
+                alert('Приносим извинения.<br/>На сервере произошла ошибка');
             }
         });
     });

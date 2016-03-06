@@ -63,6 +63,7 @@ public class TestController {
         request.setAttribute("message", "Главная страница каталога");
         return "test/catalog/catalogMain";
     }
+
     /**
      * Отображение каталога
      *

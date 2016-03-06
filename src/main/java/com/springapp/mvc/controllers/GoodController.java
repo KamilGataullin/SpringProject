@@ -41,7 +41,7 @@ public class GoodController {
      * @param goodId id товара
      */
     @ResponseBody
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)//, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public GoodInfo getFullInfo(@PathVariable("id") Long goodId) {
         return new GoodInfo(goodId, "Mercedes-Benz", "The best or nothing", "imageUrl", null, null);
     }

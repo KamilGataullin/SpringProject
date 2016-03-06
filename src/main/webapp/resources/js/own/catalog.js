@@ -42,16 +42,16 @@ $(document).ready(function () {
     });
 
     // неверно!
-    $('.js_addToCart').click(function () {
-        alert(1)
-    });
+    //$('.js_addToCart').click(function () {
+    //    alert(1)
+    //});
     // неверно!
-    $('.js_addToCart').on('click', function () {
-        alert(2);
-    });
+    //$('.js_addToCart').on('click', function () {
+    //    alert(2);
+    //});
     // верно!!!
     $(document).on('click', '.js_addToCart', function () {
-        alert(3);
+        //alert(3);
         event.preventDefault();
         var $this = $(this);
         $.ajax({
@@ -75,7 +75,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             url: '/good/' + $(this).data('id'),
-            //dataType: 'json',
+            dataType: 'json',
             success: function (data, status) {  // успешное завершение работы
                 alert(JSON.stringify(data, "", 4));
             },

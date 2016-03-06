@@ -1,6 +1,6 @@
 <div class="header_top">
     <div class="header_top_left">
-        <div class="box_11"><a href="#">
+        <div class="box_11"><a href="/cart">
             <h4>
                 <p>
                     Cart: <span class="simpleCart_total"></span>

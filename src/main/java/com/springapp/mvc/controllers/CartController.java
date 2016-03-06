@@ -25,7 +25,7 @@ public class CartController {
     private CartService cartService;
 
     /**
-     * Отображение содержимого коорзины
+     * Отображение содержимого корзины
      */
     @RequestMapping
     public String renderCart() {

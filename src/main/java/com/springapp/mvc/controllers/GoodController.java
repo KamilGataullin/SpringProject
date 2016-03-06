@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * 28.02.2016 21:04
  */
 @Controller
-@RequestMapping(value = "/good", method = RequestMethod.GET)
+@RequestMapping(value = "/good")
 public class GoodController {
 
     @Autowired

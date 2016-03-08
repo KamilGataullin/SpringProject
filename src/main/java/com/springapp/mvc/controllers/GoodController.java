@@ -1,6 +1,7 @@
 package com.springapp.mvc.controllers;
 
 import com.springapp.mvc.common.GoodInfo;
+import com.springapp.mvc.services.GoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,8 @@ public class GoodController {
 
     @Autowired
     private HttpServletRequest request;
+    @Autowired
+    private GoodService goodService;
 
     /**
      * Отображение карточки товара
@@ -31,7 +34,7 @@ public class GoodController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String renderGoodPage(@PathVariable("id") Long goodId) {
-        request.setAttribute("goodId", goodId);
+        request.setAttribute("good", goodService.getGood(goodId));
         return "good/goodPage";
     }
 

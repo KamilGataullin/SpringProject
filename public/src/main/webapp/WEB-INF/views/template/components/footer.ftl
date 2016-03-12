@@ -15,7 +15,7 @@
                 <li><a href="#">Terms</a></li>
                 <li><a href="#">Shop</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/feedback">Contact</a></li>
             </ul>
         </div>
         <ul class="social">

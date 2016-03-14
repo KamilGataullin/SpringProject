@@ -1,7 +1,7 @@
 package com.springapp.mvc.controllers;
 
+import com.springapp.mvc.aspects.annotation.IncludeMenuInfo;
 import com.springapp.mvc.common.GoodInfo;
-import com.springapp.mvc.common.MenuInfo;
 import com.springapp.mvc.common.catalog.CatalogFilterInfo;
 import com.springapp.mvc.services.CatalogService;
 import com.springapp.mvc.services.MenuService;
@@ -30,8 +30,6 @@ public class CatalogController {
     private static final Integer TEST_LIMIT = 6;
 
     @Autowired
-    private MenuService menuService;
-    @Autowired
     private CatalogService catalogService;
 
     /**
@@ -42,15 +40,12 @@ public class CatalogController {
      * @param limit кол-во товаров отображаемых на странице
      * @return отображение каталога
      */
+    @IncludeMenuInfo
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String renderCatalog(@PathVariable("id") Long id,
                                 @RequestParam(value = "page", required = false, defaultValue = "1") Integer page,
                                 Long limit,
                                 Model model) {
-        // TODO вынести в аспект
-        List<MenuInfo> listMenu = menuService.getMainMenu();
-        model.addAttribute("listMenu", listMenu);
-
         List<GoodInfo> goods = catalogService.getGoodsByCategoryId(id);
         model.addAttribute("goods", goods);
 

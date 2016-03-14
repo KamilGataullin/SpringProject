@@ -22,6 +22,8 @@ import java.util.List;
 @RequestMapping("/reg")
 public class RegistrationController {
 
+    public static final String ATTR_REGISTRATION_FORM = "regForm";
+
     @Autowired
     private HttpServletRequest request;
     @Autowired
@@ -33,13 +35,13 @@ public class RegistrationController {
         List<MenuInfo> listMenu = menuService.getMainMenu();
         request.setAttribute("listMenu", listMenu);
 
-        request.setAttribute("regForm", new RegistrationFormBean());
+        request.setAttribute(ATTR_REGISTRATION_FORM, new RegistrationFormBean());
         return "registration/registrationPage";
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public String registrationForm(
-            @Valid @ModelAttribute("regForm") RegistrationFormBean registrationFormBean,
+            @Valid @ModelAttribute(ATTR_REGISTRATION_FORM) RegistrationFormBean registrationFormBean,
 //            RegistrationFormBean registrationFormBean, // TODO хотя работает и без этой аннотации, обычно её используют для переименования аргумента
             BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

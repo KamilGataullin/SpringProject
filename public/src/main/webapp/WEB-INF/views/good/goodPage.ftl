@@ -5,7 +5,7 @@ This page in work
 Good id = ${good.id}<br>
 Good name = ${good.name}<br>
 Good description = ${good.description}<br>
-Good category = ${good.category.id} ${good.category.name}<br>
+Good category = ${good.category.id} ${good.category.name} ${(good.category.children![])?size}<br>
 Good imageUrl = ${good.imageUrl}<br>
 Good price = ${good.price}<br>
 <#else>

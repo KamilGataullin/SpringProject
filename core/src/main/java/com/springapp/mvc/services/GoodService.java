@@ -4,6 +4,7 @@ import com.springapp.mvc.common.GoodInfo;
 import com.springapp.mvc.repositories.GoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Gataullin Kamil
@@ -18,4 +19,20 @@ public class GoodService {
     public GoodInfo getGood(Long goodId) {
         return goodRepository.getGoodById(goodId);
     }
+
+    @Transactional  // оборачивает данный метод в Транзакцию
+    public void add(GoodInfo goodInfo) {
+        goodRepository.addGood(goodInfo);
+    }
+
+    @Transactional  // оборачивает данный метод в Транзакцию
+    public void update(GoodInfo goodInfo) {
+        goodRepository.updateGood(goodInfo);
+    }
+
+    @Transactional  // оборачивает данный метод в Транзакцию
+    public void delete(Long goodId) {
+        goodRepository.deleteGood(goodId);
+    }
+
 }

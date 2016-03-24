@@ -22,17 +22,17 @@ public class GoodService {
 
     @Transactional  // оборачивает данный метод в Транзакцию
     public void add(GoodInfo goodInfo) {
-        goodRepository.addGood(goodInfo);
+        goodRepository.saveAndFlush(goodInfo);
     }
 
     @Transactional  // оборачивает данный метод в Транзакцию
     public void update(GoodInfo goodInfo) {
-        goodRepository.updateGood(goodInfo);
+        goodRepository.saveAndFlush(goodInfo);
     }
 
     @Transactional  // оборачивает данный метод в Транзакцию
     public void delete(Long goodId) {
-        goodRepository.deleteGood(goodId);
+        goodRepository.delete(goodId);
     }
 
 }

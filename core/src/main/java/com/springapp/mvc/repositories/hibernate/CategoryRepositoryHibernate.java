@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  * 16.03.2016 22:21
  */
 @Repository
-public class CategoryRepositoryHibernate implements CategoryRepository {
+public class CategoryRepositoryHibernate  {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -21,7 +21,6 @@ public class CategoryRepositoryHibernate implements CategoryRepository {
         return sessionFactory.getCurrentSession();
     }
 
-    @Override
     public void addCategory(CategoryInfo categoryInfo) {
         curSession().save(categoryInfo);
     }

@@ -77,19 +77,19 @@ public class CreateTable {
     private static void testInsert() {
         init();
         CategoryInfo category = new CategoryInfo(1L, "Тестовая категория", null);
-        categoryRepository.addCategory(category);
-        goodRepository.addGood(new GoodInfo(1L, "Men's", "Lorem ipsum dolor sit amet consectetur adipisicing.",
+        categoryRepository.saveAndFlush(category);
+        goodRepository.saveAndFlush(new GoodInfo(1L, "Men's", "Lorem ipsum dolor sit amet consectetur adipisicing.",
                 "/images/w1.jpg", category, new BigDecimal(100)));
-        goodRepository.addGood(new GoodInfo(2L, "Men's", "Lorem ipsum dolor sit amet consectetur adipisicing.",
+        goodRepository.saveAndFlush(new GoodInfo(2L, "Men's", "Lorem ipsum dolor sit amet consectetur adipisicing.",
                 "/images/w2.jpg", category, new BigDecimal(200)));
-        goodRepository.addGood(new GoodInfo(3L, "Women's", "Lorem ipsum dolor sit amet consectetur adipisicing.",
+        goodRepository.saveAndFlush(new GoodInfo(3L, "Women's", "Lorem ipsum dolor sit amet consectetur adipisicing.",
                 "/images/w3.jpg", category, new BigDecimal(200)));
     }
 
     private static void testUpdate() {
         init();
         CategoryInfo category = new CategoryInfo(1L, "Тестовая категория", null);
-        goodRepository.updateGood(new GoodInfo(1L, "Новый товар", "Новое описание нового товара.",
+        goodRepository.saveAndFlush(new GoodInfo(1L, "Новый товар", "Новое описание нового товара.",
                 "/images/w1.jpg", category, new BigDecimal(555)));
     }
 

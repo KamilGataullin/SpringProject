@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  * 16.03.2016 22:01
  */
 @Repository
-public class GoodRepositoryHibernate implements GoodRepository {
+public class GoodRepositoryHibernate { // implements GoodRepository {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -22,25 +22,21 @@ public class GoodRepositoryHibernate implements GoodRepository {
         return sessionFactory.getCurrentSession();
     }
 
-    @Override
     public void addGood(GoodInfo goodInfo) {
         curSession().save(goodInfo);
     }
 
-    @Override
     public void updateGood(GoodInfo goodInfo) {
         curSession().update(goodInfo);
         // а если его еще нет, то лучше сохранить его
 //        curSession().saveOrUpdate(goodInfo);
     }
 
-    @Override
     public void deleteGood(Long goodId) {
         // удаление происходит только по сравнению id, поэтому весь объект нам и не нужен
         curSession().delete(new GoodInfo(goodId));
     }
 
-    @Override
     public GoodInfo getGoodById(Long goodId) {
         // 1. It will always return a “proxy” (Hibernate term) without hitting the database.
         //    In Hibernate, proxy is an object with the given identifier value,

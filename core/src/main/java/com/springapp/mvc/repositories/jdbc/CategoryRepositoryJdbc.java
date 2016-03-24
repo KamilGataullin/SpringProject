@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * 08.03.2016 20:35
  */
 @Repository
-public class CategoryRepositoryJdbc implements CategoryRepository {
+public class CategoryRepositoryJdbc { //implements CategoryRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -19,7 +19,6 @@ public class CategoryRepositoryJdbc implements CategoryRepository {
     private static final String SQL_INSERT_CATEGORY =
             "insert into CATEGORY (name) values (?)";
 
-    @Override
     public void addCategory(CategoryInfo categoryInfo) {
         jdbcTemplate.update(SQL_INSERT_CATEGORY, categoryInfo.getName());
     }

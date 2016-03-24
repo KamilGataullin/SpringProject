@@ -20,7 +20,7 @@ import java.util.Map;
  * 07.03.2016 0:18
  */
 @Repository
-public class GoodRepositoryJdbc implements GoodRepository {
+public class GoodRepositoryJdbc { // implements GoodRepository {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -30,7 +30,6 @@ public class GoodRepositoryJdbc implements GoodRepository {
     private static final String SQL_INSERT_GOOD =
             "insert into GOODS (name, description, imageUrl, categoryId, price) values (?, ?, ?, ?, ?)";
 
-    @Override
     public void addGood(GoodInfo goodInfo) {
         jdbcTemplate.update(SQL_INSERT_GOOD,
                 goodInfo.getName(),
@@ -45,7 +44,6 @@ public class GoodRepositoryJdbc implements GoodRepository {
                     "categoryId = :categoryId, price = :price " +
                     "where id = :goodId";
 
-    @Override
     public void updateGood(GoodInfo goodInfo) {
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("goodId", goodInfo.getId());
@@ -58,7 +56,6 @@ public class GoodRepositoryJdbc implements GoodRepository {
         namedJdbcTemplate.update(SQL_UPDATE_GOOD, params);
     }
 
-    @Override
     public void deleteGood(Long goodId) {
         // FIXME
     }
@@ -69,7 +66,6 @@ public class GoodRepositoryJdbc implements GoodRepository {
                     "join CATEGORY c on g.categoryId = c.id " +
                     "where g.id = ?";
 
-    @Override
     public GoodInfo getGoodById(Long goodId) {
         RowMapper<GoodInfo> rm = new RowMapper<GoodInfo>() {
             @Override

@@ -2,6 +2,7 @@ package com.springapp.mvc.services;
 
 import com.springapp.mvc.common.GoodInfo;
 import com.springapp.mvc.repositories.GoodRepository;
+import com.springapp.mvc.repositories.GoodRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +19,13 @@ public class GoodService {
 
     @Autowired
     private GoodRepository goodRepository;
+
+    @Autowired
+    private GoodRepositoryCustom goodRepositoryCustom;
+
+    public List<GoodInfo> getListGoodsLikeName(String name) {
+        return goodRepositoryCustom.findGoodLikeName(name);
+    }
 
     public GoodInfo getGood(Long goodId) {
         return goodRepository.getGoodById(goodId);

@@ -39,7 +39,8 @@ public class GoodController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String renderGoodPage(@PathVariable("id") Long goodId) {
         request.setAttribute("good", goodService.getGood(goodId));
-        request.setAttribute("findGood", goodService.find("Имя 1", new BigDecimal(100)));
+        request.setAttribute("findGood1", goodService.find("Имя 1", new BigDecimal(100)));
+        request.setAttribute("findGood2", goodService.getListGoodsLikeName("Имя"));
         request.setAttribute("catalog", catalogService.findByName("Первая"));
         return "good/goodPage";
     }

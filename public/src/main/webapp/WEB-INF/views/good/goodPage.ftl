@@ -15,8 +15,8 @@ Good price = ${good.price}<br>
 <br><br>
 ===============================================================================================
 <br><br>
-<#if findGood?has_content>
-<#list findGood as fg>
+<#if findGood1?has_content>
+<#list findGood1 as fg>
 Good id = ${fg.id}<br>
 Good name = ${fg.name}<br>
 Good description = ${fg.description}<br>
@@ -25,6 +25,23 @@ Good imageUrl = ${fg.imageUrl}<br>
 Good price = ${fg.price}<br>
 <br>
 </#list>
+<#else>
+Извините, товара по поиску нет
+</#if>
+
+<br><br>
+===============================================================================================
+<br><br>
+<#if findGood2?has_content>
+    <#list findGood2 as fg>
+    Good id = ${fg.id}<br>
+    Good name = ${fg.name}<br>
+    Good description = ${fg.description}<br>
+    Good category = ${fg.category.id} ${fg.category.name} ${(fg.category.children![])?size}<br>
+    Good imageUrl = ${fg.imageUrl}<br>
+    Good price = ${fg.price}<br>
+    <br>
+    </#list>
 <#else>
 Извините, товара по поиску нет
 </#if>

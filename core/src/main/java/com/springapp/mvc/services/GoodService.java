@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 /**
  * Gataullin Kamil
  * 07.03.2016 0:20
@@ -33,6 +36,10 @@ public class GoodService {
     @Transactional  // оборачивает данный метод в Транзакцию
     public void delete(Long goodId) {
         goodRepository.delete(goodId);
+    }
+
+    public List<GoodInfo> find(String name, BigDecimal price) {
+        return goodRepository.findGoodsByNameAndPrice(name, price);
     }
 
 }

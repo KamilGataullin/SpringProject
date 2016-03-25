@@ -11,3 +11,25 @@ Good price = ${good.price}<br>
 <#else>
 Извините, но у нас нет товара с id = ${id} :(
 </#if>
+
+<br><br>
+===============================================================================================
+<br><br>
+<#if findGood?has_content>
+<#list findGood as fg>
+Good id = ${fg.id}<br>
+Good name = ${fg.name}<br>
+Good description = ${fg.description}<br>
+Good category = ${fg.category.id} ${fg.category.name} ${(fg.category.children![])?size}<br>
+Good imageUrl = ${fg.imageUrl}<br>
+Good price = ${fg.price}<br>
+<br>
+</#list>
+<#else>
+Извините, товара по поиску нет
+</#if>
+
+<br><br>
+===============================================================================================
+<br><br>
+${catalog?has_content?string} - ${(catalog.id)!"нет ничего"}

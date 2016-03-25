@@ -5,7 +5,9 @@ import com.springapp.mvc.common.GoodInfo;
 import com.springapp.mvc.common.catalog.CatalogFilterInfo;
 import com.springapp.mvc.common.catalog.FilterItem;
 import com.springapp.mvc.common.catalog.PriceFilterItem;
+import com.springapp.mvc.repositories.CategoryRepository;
 import org.springframework.beans.CachedIntrospectionResults;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -20,6 +22,13 @@ import java.util.List;
  */
 @Service
 public class CatalogService {
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    public CategoryInfo findByName(String name) {
+        return categoryRepository.findByName(name);
+    }
 
     /**
      * Получение товаров по id категории

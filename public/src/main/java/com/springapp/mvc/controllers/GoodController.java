@@ -1,6 +1,7 @@
 package com.springapp.mvc.controllers;
 
 import com.springapp.mvc.common.GoodInfo;
+import com.springapp.mvc.services.CatalogService;
 import com.springapp.mvc.services.GoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 
 /**
  * Контроллер для работы с карточкой товара
@@ -26,6 +28,8 @@ public class GoodController {
     private HttpServletRequest request;
     @Autowired
     private GoodService goodService;
+    @Autowired
+    private CatalogService catalogService;
 
     /**
      * Отображение карточки товара
@@ -35,6 +39,8 @@ public class GoodController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String renderGoodPage(@PathVariable("id") Long goodId) {
         request.setAttribute("good", goodService.getGood(goodId));
+        request.setAttribute("findGood", goodService.find("Имя 1", new BigDecimal(100)));
+        request.setAttribute("catalog", catalogService.findByName("Первая"));
         return "good/goodPage";
     }
 

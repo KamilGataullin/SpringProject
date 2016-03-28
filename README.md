@@ -12,3 +12,7 @@
 
  1. в spring-core.xml подключить соответствующий файл конфигураций Spring.
  2. закомментировать OpenSessionInViewFilter в web.xml. Иначе он будет искать bean sessionFactory, который не сможет найти.
+ 
+ 
+ 
+ md5('555')=15de21c670ae7c3f6f3f1f37029303c9;

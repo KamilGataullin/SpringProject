@@ -1,6 +1,6 @@
 <#assign form=JspTaglibs["http://www.springframework.org/tags/form"]>
 <#include "../template/template.ftl">
-<@mainTemplate title="Регистрация" headerBannerClass="men_banner" />
+<@mainTemplate title="Регистрация" />
 <#macro m_body>
 <div class="account-in">
     <div class="container">

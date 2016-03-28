@@ -1,5 +1,5 @@
 <#include "../template/template.ftl">
-<@mainTemplate title="Обратная связь" headerBannerClass="men_banner" />
+<@mainTemplate title="Обратная связь" />
 <#macro m_body>
 <div class="men">
     <div class="container">

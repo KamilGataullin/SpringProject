@@ -1,6 +1,6 @@
 <#-- @ftlvariable name="topGoods" type="java.util.List<com.springapp.mvc.common.GoodInfo>" -->
 <#include "../template/template.ftl">
-<@mainTemplate title="Главная" />
+<@mainTemplate title="Главная" headerBannerClass="banner" />
 <#macro m_body>
 <div class="main">
     <div class="container">

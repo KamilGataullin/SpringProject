@@ -1,4 +1,4 @@
-<#macro mainTemplate title="Watches an E-Commerce online Shopping Category | Home" styles=[] scripts=[] headerBannerClass="banner" >
+<#macro mainTemplate title="Watches an E-Commerce online Shopping Category | Home" styles=[] scripts=[] headerBannerClass="men_banner" >
 <!DOCTYPE HTML>
 <html lang="ru">
 <head>

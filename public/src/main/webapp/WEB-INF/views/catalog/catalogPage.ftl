@@ -1,7 +1,6 @@
 <#-- @ftlvariable name="goods" type="java.util.List<com.springapp.mvc.common.GoodInfo>" -->
 <#include "../template/template.ftl">
-<@mainTemplate title="Каталог товаров" styles=["css/component.css", "css/own/catalog.css"]
-               scripts=["js/own/catalog.js"] headerBannerClass="men_banner" />
+<@mainTemplate title="Каталог товаров" styles=["css/component.css", "css/own/catalog.css"] scripts=["js/own/catalog.js"] />
 <#macro m_body>
 <div class="men">
     <div class="container">
